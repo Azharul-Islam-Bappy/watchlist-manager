@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/show-form.css">
+ 
+  <title>Watch-list-manager —HOME</title>
+</head>
+<body>
+	<header class="header-section">
+	  <nav class="navabr">
+	    <img class="nav-logo" src="assets/images/logo.svg" alt="logo" />
+	    <img class="menu-icon open-menu" src="assets/images/icon-menu.svg" alt="menu icon" />
+	    
+	    <div class="nav-items-container">
+	      <ul class="item-list">
+  	      <li class="item-head">
+  	        <span>Menu</span>
+  	        <button class="close-menu" type="button">Close</button>
+  	      </li>
+	        <li><a class="add-item" href="#">ADD Item</a></li>
+	        <li><a class="guide" href="guide.html">Guide</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	  
+	  <section class="search-field">
+	    <input type="text" name="input-field" id="input-field" placeholder="Enter Show Name" />
+	    <button id="add-item" type="button">search</button>
+	  </section>
+	</header>
+	
+	<form class="add-item-form">
+	  <img id="icon-close" src="assets/images/icon-close.svg" alt="close icon" />
+	  <div class="file-field">
+	    <input type="file" name="background" id="background" value="" hidden="true" />
+      <label class="label" for="background">
+        <img class="upload-icon" src="assets/images/icon-upload.svg" alt="icon of upload file" />
+        <p class="msg">Drag and drop or click to upload</p>
+      </label>
+      <p id="img-error" class="error-msg"></p>
+	  </div>
+	  <div class="title-section form-item">
+	    <label for="title">Show Name</label>
+      <input type="text" name="title" id="title" placeholder="Show Name" /> 
+      <p id="title-error" class="error-msg"></p>
+	  </div>
+	  <div class="my-descrition form-item">
+	    <label for="my-notes">My notes</label>
+	    <textarea name="my-notes" id="my-notes" rows="6" cols="32" placeholder="Enter notes or descriptions..."></textarea>
+	    <p id="notes-error" class="error-msg"></p>
+	  </div>
+	  <div class="status-option form-item">
+	    <label for="status">Status</label>
+	    <select name="status" id="status">
+        <option value="to-watch">To Watch</option>
+        <option value="watching">Watching</option>
+        <option value="watched">Watched</option>
+      </select>
+      <p id="status-error" class="error-msg"></p>
+	  </div>
+	  <button type="submit">submit</button>
+	</form>
+	
+	<script src="js/index.js"></script>
+	<script src="js/navbar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/watch-list.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
