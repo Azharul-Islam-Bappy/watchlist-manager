@@ -17,6 +17,12 @@
   }
 }
 
+.upload-icon{
+  width: 40px;
+  height: 40px;
+  size: 35px 35px;
+}
+
 .add-item-form{
   top: 15%;
   left: 4.4%;
