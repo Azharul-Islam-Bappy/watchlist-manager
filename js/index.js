@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
   
   const title = document.querySelector("#title").value.trim();
   const notes = document.querySelector("#my-notes").value.trim();
-  const state = document.querySelector("#stateus").value.trim();
+  const state = document.querySelector("#status").value.trim();
   
   if (title === '') {
     const p = document.querySelector("#title-error");
@@ -67,6 +67,7 @@ form.addEventListener("submit", (e) => {
     form.style.display = "none";
     form.classList.remove("show-form");
     
+    renderWatchlist();
   }
 });
 

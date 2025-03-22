@@ -56,7 +56,7 @@ li{
   span{
     font-size: 1.15rem; 
     font-weight: 500;
-    color: #939393;
+    color: #003;
   }
 }
 
@@ -70,7 +70,7 @@ div.nav-items-container{
   z-index: 1000;
   padding: 2rem 1.5rem; 
   background: rgba(255, 255, 255, 0.009);
-  backdrop-filter: blur(15px) brightness(0.975);
+  backdrop-filter: blur(10px) brightness(0.975);
   box-shadow: 0 4px 6px rgba(0,0,0, 0.2);
   drop-shadow: 0 4px 10px rgba(0,0,0, 0.2);
   transform: translateX(90%); 
@@ -118,11 +118,12 @@ div.close{
 }
 
 #add-item{
+  color: #fff;
   padding: 1rem;
   font-size: 17px; 
-  font-weight: 390;
+  font-weight: 400;
   border-radius: 0.5rem;
-  background-color: #E5E5DC;
+  background-color: /*#E5E5DC*/ #007AFF;
 }
 
 /* media queries */ 

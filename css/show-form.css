@@ -52,12 +52,20 @@
   }
   
   button{
-    left: 70%;
-    padding: 0.8rem;
+    left: 50%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 410;
+    padding: 1rem 2rem;
     position: relative;
-    background: transparent;
+    background: #007AFF;
     border-radius: 1rem;
+    letter-spacing: 0.8px;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:focus{
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.9);
   }
 }
 
