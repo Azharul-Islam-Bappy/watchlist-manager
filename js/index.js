@@ -3,8 +3,14 @@ const store = {
   img: undefined,
   title: undefined,
   notes: undefined,
-  state: undefined
+  state: undefined,
+  id: undefined
 }
+let count = watchList.length;
+let currentEditingID = null;
+const mode = document.querySelector(".f-header");
+const submitBtn = document.querySelector("button[type='submit'");
+const imgIcon = document.querySelector(".upload-icon");
 
 const form = document.querySelector(".add-item-form");
 const formBtn = document.querySelector(".add-item");
@@ -19,8 +25,15 @@ formBtn.addEventListener("click", (e) => {
 });
 
 closeIcon.addEventListener("click", (e) => {
+  mode.innerText = "Add Show";
+  submitBtn.innerText = "submit";
   form.style.display = "none";
   form.classList.remove("show-form");
+  
+  imgIcon.src = "../assets/images/icon-upload.svg";
+  document.querySelector("#title").value = "";
+  document.querySelector("#my-notes").value = "";
+  document.querySelector("#status").value = "to-watch";
 })
 
 // form handler  
@@ -54,18 +67,46 @@ form.addEventListener("submit", (e) => {
     p.innerText = "";
   }
   
-  if (title != '' && notes != '' && state != '') {
-    store.title = title;
-    store.notes = notes;
-    store.state = state;
-  }
-  
-  if (store.img !== undefined && store.title !== undefined && store.notes !== undefined && store.state !== undefined) {
-    watchList.push(store);
-    localStorage.setItem("watch-list", JSON.stringify(watchList)); 
+  if (title != '' && notes != '' && state != '' && (currentEditingID || store.img !== undefined)) {
     
+    if (currentEditingID) {
+      const index = watchList.findIndex(show => show.id == currentEditingID);
+      
+      if (index !== -1) {
+        
+        watchList[index].title = title;
+        watchList[index].notes = notes;
+        watchList[index].state = state;
+        
+        if (store.img) {
+          watchList[index].img = store.img;
+        }
+        
+        currentEditingID = null;
+        mode.innerText = "Add Show";
+        submitBtn.innerText = "submit";
+        imgIcon.src = "../assets/images/icon-upload.svg";
+        document.querySelector("#title").value = "";
+        document.querySelector("#my-notes").value = "";
+        document.querySelector("#status").value = "to-watch";
+        const p = document.querySelector("#img-error");
+        p.innerText = '';
+      }
+      
+    } else {
+      store.title = title;
+      store.notes = notes;
+      store.state = state;
+      store.id = count++;
+      watchList.push({...store});
+    }
+    
+    
+    localStorage.setItem("watch-list", JSON.stringify(watchList)); 
+      
     form.style.display = "none";
     form.classList.remove("show-form");
+    submitBtn.innerText = "submit";
     
     renderWatchlist();
   }
@@ -112,7 +153,7 @@ function callback(obj) {
     const error = document.querySelector("#img-error");
     error.innerText = error;
   } else if (obj.data) {
-    const imgIcon = document.querySelector(".upload-icon");
+    
     const imgName = document.querySelector(".msg");
     
     imgIcon.src = obj.data;

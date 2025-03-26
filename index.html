@@ -35,7 +35,10 @@
 	</header>
 	
 	<form class="add-item-form">
-	  <img id="icon-close" src="assets/images/icon-close.svg" alt="close icon" />
+	  <div class="box">
+  	  <h3 class="f-header">Add Show</h3>
+  	  <img id="icon-close" src="assets/images/icon-close.svg" alt="close icon" />
+	  </div>
 	  <div class="file-field">
 	    <input type="file" name="background" id="background" value="" hidden="true" />
       <label class="label" for="background">
@@ -63,14 +66,14 @@
       </select>
       <p id="status-error" class="error-msg"></p>
 	  </div>
-	  <button type="submit">Submit</button>
+	  <button type="submit">submit</button>
 	</form>
 	
 	<script src="js/watch-list.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/index.js"></script>
 	<script src="js/navbar.js" type="text/javascript" charset="utf-8"></script>
 	
-	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-  <script>eruda.init();</script>  
+	<!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>  -->
 </body>
 </html>
