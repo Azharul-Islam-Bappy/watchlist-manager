@@ -20,3 +20,55 @@ body{
   position: relative;
   background: rgba(255, 255, 255, 0.9);
 }
+
+/* custom notificationm style */
+/* Notification container styling */
+#notification-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+/* Notification toast styling */
+.notification {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 4s;
+  cursor: pointer;
+}
+
+/* Optional icon styling */
+.notification-icon {
+  margin-right: 0.8rem;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
